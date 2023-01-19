@@ -11,9 +11,13 @@ Input: GeoJSON
 Output: List [class, x_center, y_center, width, height]
 
 
-## Next Step
+### 40_40/shp_to_geojson.ipynb
 
-How to connect the features to the images.
+Takes aall shp files and converts them into a GeoJSON files
+
+Inout: shp
+
+Output: GeoJSON
 
 ## Yolov5
 
