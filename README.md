@@ -10,7 +10,6 @@ Input: GeoJSON
 
 Output: List [class, x_center, y_center, width, height]
 
-
 ### 40_40/shp_to_geojson.ipynb
 
 Takes aall shp files and converts them into a GeoJSON files
@@ -21,4 +20,4 @@ Output: GeoJSON
 
 ## Yolov5
 
-- Read more about YOLOv5: https://github.com/ultralytics/yolov5
+* Read more about YOLOv5: https://github.com/ultralytics/yolov5
