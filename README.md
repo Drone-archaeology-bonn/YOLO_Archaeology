@@ -22,7 +22,7 @@ rm -rf Not_five
 
 I created two datasets:
 1. "dataset" contains all 35,154 images that are in split_images
-2. "9_background_dataset" contains 2,324 images. 2113 images with class instances and 211 background images
+2. "9_background_dataset" contains 2,324 images. 2,113 images with class instances and 211 background images
 
 
 # Code for creating the datasets
