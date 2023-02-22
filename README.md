@@ -12,14 +12,27 @@ mv * ..
 rm -rf Not_five
 ```
 
-# Code for creatin the dataset
 
-## Vulkaneifel/dataset_creation.ipynb
+# Datasets
 
-Does three things:
-1. Renames the tif's in split_images so that they match the feature naming scheme
-2. Divide the images into a train, validation and test set
-3. Converting the shp files in split_features to GeoJSON
+I created two datasets:
+1. "dataset" contains all 35154 images that are in split_images
+2. "9_background_dataset" contains 2324 images. 2113 images with class instances and 211 background images
+
+
+# Code for creating the datasets
+
+I created two datasets:
+1. "dataset" contains all 35154 images that are in split_images
+2. "9_background_dataset" contains 2324 images. 2113 images with class instances and 211 background images
+
+
+## Vulkaneifel/file_organisation.ipynb
+
+Prepares the given data in split_images and split_featues for further processes by
+1. Renames the TIFF's in split_images so that they match the feature naming convention e.g. "split_images/0001/0001/0001_0001.tif" -> "Images/00001.tif"
+2. Converting the Shapefiles to GeoJSON e.g. e.g. "split_features/00001/00001.shp" -> "GeoJSON/00001.geojson"
+
 
 ## Vulkaneifel/parameter_extraction.ipynb
 
@@ -29,6 +42,23 @@ Takes a GeoJSON file and creates a correspnding TXT file for each image. The spe
 * Box coordinates are normalized (from 0 - 1)
 * Class numbers are zero-indexed (start from 0)
 
+Also splits the images in two folders:
+1. "Labeled_images" all images that have a feature file with at least one instance of an object
+2. "No_label_images" all images that either have an empty feature file or that don't have a feature file
+
+
+## Vulkaneifel/dataset_creation.ipynb
+
+Creates two diffrent datasets
+- "9_background_dataset":
+    - Takes all images in "Labeled_images" and 211 random images from "No_label_images"
+    - Puts randomly 80% of the images with matching features in train and 20% in validation
+    - I choosed not to create a test set because the dataset is relatively small
+    
+- "dataset":
+    - Ueses all 35154 images, this means about 94% of the images are either black or without class instances
+    - Putd randomly 70% of the images with matching feature file in train, 15% in validation and 15 in test
+
 
 ## Extracting_parameters.ipynb   (Not important for creating the dataset)
 
@@ -37,6 +67,10 @@ Takes a GeoJSON file and returns all parameters, that are important for labeling
 Input: GeoJSON
 
 Output: List [class, x_center, y_center, width, height]
+
+
+## geojson_exploration.ipynb   (Not important for creating the dataset)
+Explores the original big feature file "features_lidar.geojson" for better understanding of the given data
 
 
 # Yolov5
