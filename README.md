@@ -1,7 +1,12 @@
 # Dataloader
 
 # Preparation
-Make sure that all the folders in split_features are 5 digits long, if not do in the console:
+
+* The original data gets split using Gridsplitter in QGis, we receive two folders:
+    * "split_images" containing all the splitted imges as TIFF files
+    * "split_features" containing all the splitted features as Shapefiles
+
+* Make sure that all the folders in "split_features" are 5 digits long, if not do in the console:
 
 ```console
 mkdir Not_five
@@ -16,15 +21,15 @@ rm -rf Not_five
 # Datasets
 
 I created two datasets:
-1. "dataset" contains all 35154 images that are in split_images
-2. "9_background_dataset" contains 2324 images. 2113 images with class instances and 211 background images
+1. "dataset" contains all 35,154 images that are in split_images
+2. "9_background_dataset" contains 2,324 images. 2113 images with class instances and 211 background images
 
 
 # Code for creating the datasets
 
 I created two datasets:
 1. "dataset" contains all 35154 images that are in split_images
-2. "9_background_dataset" contains 2324 images. 2113 images with class instances and 211 background images
+2. "9_background_dataset" contains 2324 images. 2,113 images with class instances and 211 background images
 
 
 ## Vulkaneifel/file_organisation.ipynb
@@ -56,8 +61,8 @@ Creates two diffrent datasets
     - I choosed not to create a test set because the dataset is relatively small
     
 - "dataset":
-    - Ueses all 35154 images, this means about 94% of the images are either black or without class instances
-    - Putd randomly 70% of the images with matching feature file in train, 15% in validation and 15 in test
+    - Ueses all 35,154 images, this means about 94% of the images are either black or without class instances
+    - Pud randomly 70% of the images with matching feature file in train, 15% in validation and 15 in test
 
 
 ## Extracting_parameters.ipynb   (Not important for creating the dataset)
