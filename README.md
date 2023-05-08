@@ -1,8 +1,14 @@
-# Dataloader
+# Detecting archaeological structures with YOLOv5
+
+# Problem statement
+
+In this project I successfully trained YOLOv5 to detect three given classes: bombcraters, charcoal piles, and barrows on a digital surface model (DSM).
 
 # Preparation
 
-* The original data gets split using Gridsplitter in QGis, we receive two folders:
+* We recived a DSM with already annotated instances of the classes
+
+* The original data gets split using Gridsplitter in QGIS, we receive two folders:
     * "split_images" containing all the splitted imges as TIFF files
     * "split_features" containing all the splitted features as Shapefiles
 
@@ -16,13 +22,6 @@ for D in */; do cd "${D}" for f in *; do mv "$f" "0$f"; done cd .. mv "${D}" "0$
 mv * ..
 rm -rf Not_five
 ```
-
-
-# Datasets
-
-I created two datasets:
-1. "dataset" contains all 35,154 images that are in split_images
-2. "9_background_dataset" contains 2,324 images. 2,113 images with class instances and 211 background images
 
 
 # Code for creating the datasets
@@ -64,8 +63,9 @@ Creates two diffrent datasets
     - Ueses all 35,154 images, this means about 94% of the images are either black or without class instances
     - Pud randomly 70% of the images with matching feature file in train, 15% in validation and 15 in test
 
+# Extra Code that is not relevant to create the dataset
 
-## Extracting_parameters.ipynb   (Not important for creating the dataset)
+## Extracting_parameters.ipynb   
 
 Takes a GeoJSON file and returns all parameters, that are important for labeling the features, that YOLOv5 needs, as a list.
 
@@ -74,7 +74,7 @@ Input: GeoJSON
 Output: List [class, x_center, y_center, width, height]
 
 
-## geojson_exploration.ipynb   (Not important for creating the dataset)
+## geojson_exploration.ipynb   
 Explores the original big feature file "features_lidar.geojson" for better understanding of the given data
 
 
