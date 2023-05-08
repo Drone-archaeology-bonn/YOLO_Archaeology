@@ -4,6 +4,10 @@
 
 In this project I successfully trained YOLOv5 to detect three given classes: bombcraters, charcoal piles, and barrows on a digital surface model (DSM).
 
+# Best results
+
+The best results appeared in taining exp47
+
 # Preparation
 
 * We recived a DSM with already annotated instances of the classes
@@ -26,9 +30,9 @@ rm -rf Not_five
 
 # Code for creating the datasets
 
-I created two datasets:
+I created two relevant datasets:
 1. "dataset" contains all 35154 images that are in split_images
-2. "9_background_dataset" contains 2324 images. 2,113 images with class instances and 211 background images
+2. "9_tvt_dataset" contains 2324 images. 2,113 images with class instances and 211 background images
 
 
 ## Vulkaneifel/file_organisation.ipynb
@@ -54,16 +58,20 @@ Also splits the images in two folders:
 ## Vulkaneifel/dataset_creation.ipynb
 
 Creates two diffrent datasets
-- "9_background_dataset":
+- "9_tvt_dataset":
     - Takes all images in "Labeled_images" and 211 random images from "No_label_images"
-    - Puts randomly 80% of the images with matching features in train and 20% in validation
+    - Puts randomly 87% of the images with matching features in train and 15% in validation, and 15% in test
     - I choosed not to create a test set because the dataset is relatively small
     
 - "dataset":
     - Ueses all 35,154 images, this means about 94% of the images are either black or without class instances
-    - Pud randomly 70% of the images with matching feature file in train, 15% in validation and 15 in test
+    - Pud randomly 70% of the images with matching feature file in train, 15% in validation and 15% in test
 
 # Extra Code that is not relevant to create the dataset
+
+## Progress.ipynb
+
+Here I keep track of my progress and log my training, validating, and infrence progress
 
 ## Extracting_parameters.ipynb   
 
